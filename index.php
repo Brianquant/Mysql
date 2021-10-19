@@ -1,51 +1,28 @@
-
-
-<html>
-  <head>
-  </head>
-    <body>
-      <!-- $_SERVER['PHP_SELF'] sendet den Input an das index.php Skript selber  -->
-      <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
-        <textarea name="query" cols="30" rows="5">
-        </textarea>
-        <br/>
-        <input type="reset" name="reset" value="Feld leeren">
-        <input type="submit" name="submit" value="Abschicken">
-      </form>
-    </body>
-</html>
-
+<!DOCTYPE html><html><head><meta charset="utf-8"></head></html>
 <?php 
+/**Verbindung aufnehmen und Datenbank auswählen */
+$con = mysqli_connect("", "root", "", "firma");
 
-  if(isset($_POST['query']) && !empty($_POST['query'])) {
-    // Verbindung herstellen 
-    $link = mysqli_connect('localhost',
-                            'root',
-                            '');
-    if(!$link) {
-      echo 'Verbindungfehler: ' . mysqli_connect_error();
-      die();
-    }
-    else 
-    {
-      // Abfrage absenden
-      $result = mysqli_query($link, $_POST['query']);
-      echo "Connection was successfully";
-    }
-  if(isset($_POST['query']) && !empty($_POST['query'])) {
-    // Verbindung herstellen 
-    $link = mysqli_connect('localhost',
-                            'root',
-                            '');
-    if(!$link) {
-      echo 'Verbindungfehler: ' . mysqli_connect_error();
-      die();
-    }
-    else 
-    {
-      // Abfrage absenden
-      $result = mysqli_query($link, $_POST['query']);
-      echo "Connection was successfully";
-    }
-  }
+/**SQL-Abfrage ausführen */
+$res = mysqli_query($con, "SELECT * FROM personen");
+
+/**Anzahl Datensätze ermitteln und ausgeben */
+$num = mysqli_num_rows($res);
+if($num > 0) {
+  echo "Ergebnis:<br>";
+} else {
+  echo "Keine Ergebnisse";
+}
+
+/**Datensätze aus Ergebnis ermitteln
+ * in Array speichern und ausgeben
+ */
+
+ while($dsatz = mysqli_fetch_assoc($res)) {
+   echo $dsatz['name'] . "," . $dsatz['vorname'] . "," . $dsatz['personalnummer'] . "," . $dsatz['gehalt'] . $dsatz['geburtstag'] . "<br>";
+ }
+
+ /**Verbindung schließen */
+ mysqli_close($con);
+
 ?>
