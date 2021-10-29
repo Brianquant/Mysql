@@ -1,4 +1,5 @@
 <!DOCTYPE html><html><head><meta charset="utf-8"></head></html>
+<!-- Datensätze eintragen -->
 <?php 
 /**Verbindung aufnehmen und Datenbank auswählen */
 $con = mysqli_connect("", "root", "", "firma");
