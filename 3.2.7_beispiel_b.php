@@ -6,6 +6,7 @@
 if(isset($_POST["auswahl"])) {
     $con = mysqli_connect("", "root", "","firma");
     $sql = "SELECT * FROM personen WHERE personalnummer = " . $_POST["auswahl"];
+    echo $sql;
 
     $res = mysqli_query($con, $sql);
     $dsatz = mysqli_fetch_assoc($res);

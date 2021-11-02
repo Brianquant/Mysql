@@ -1,0 +1,10 @@
+body, td {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 10pt;
+    color: #636366;
+    background-color: #d3d3d3;
+}
+
+a:link {color: #636366;}
+a:visited {color: #636366;}
+a:hover {color: #636366; background-color: #a3a3a3;}

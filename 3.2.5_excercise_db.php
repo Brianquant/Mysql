@@ -11,7 +11,7 @@ if(isset($_POST["gesendet"])) {
     $art = $_POST["art"];
     $dt = $_POST["dt"];
 
-    $sql = "INSERT INTO fb(hersteller, typ, "
+    $sql = "INSERT INTO fp(hersteller, typ, "
             . "gb, preis, artnummer, prod) "
             . "VALUES('$he', '$typ', $pr, $gb, '$art', '$dt')";
     mysqli_query($con, $sql);

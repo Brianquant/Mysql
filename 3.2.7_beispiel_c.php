@@ -24,8 +24,6 @@
         echo "Betroffen: 0";
     }
 
-    
-
     mysqli_close($con);
 
 ?>
