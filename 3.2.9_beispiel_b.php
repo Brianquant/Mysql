@@ -14,8 +14,7 @@
 
             document.f.aktion.value = aktion;
             document.f.id.value = id;
-            document.f.submit();
-        
+            document.f.submit(); 
     }
 </script>
     </head>
